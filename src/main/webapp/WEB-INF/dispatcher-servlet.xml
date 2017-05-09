@@ -15,5 +15,5 @@
 
     <mvc:annotation-driven/>
     <mvc:resources mapping="/resources/**" location="/resources/"/>
-    <context:component-scan base-package="controllers"/>
+    <context:component-scan base-package="controllers, dao, model, service"/>
 </beans>
