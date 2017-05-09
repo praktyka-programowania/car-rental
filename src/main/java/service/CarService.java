@@ -13,6 +13,6 @@ public interface CarService
     void deleteCar(int id);
     List<Car> search(String str);
     List<Car> search(int year);
-    public List<Car> search(String company, String model);
+    List<Car> search(String company, String model);
     List<Car> search(Car car);
 }

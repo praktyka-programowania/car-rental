@@ -26,7 +26,11 @@ public class WelcomeController
     @RequestMapping("/display")
     public String showAll(Model model)
     {
-        model.addAttribute("list", service.getAll());
+        List<Car> list = service.getAll();
+        if (!list.isEmpty())
+            model.addAttribute("list", list);
+        else
+            model.addAttribute("error", "There is no available cars for today. Try later :(");
         return "display";
     }
 
