@@ -1,13 +1,14 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Cars rental store</title>
-</head>
-<body>
+<%@include file="/WEB-INF/common/header.jspf"%>
+<%@include file="/WEB-INF/common/navigation.jspf"%>
+
+<div class="center-block">
     <a href="/">Cars rental store</a>
-    <a href="/search">Search</a>
-    <a href="/all">Show all available</a>
-    <a href="/login">Log in</a>
-    <a href="/singup">Sing up</a>
-</body>
-</html>
+</div>
+<div class="col-lg-2">
+    <a href="/search">Go searching</a>
+</div>
+<div class="col-lg-2">
+    <a href="/display">Show all available</a>
+</div>
+
+<%@include file="/WEB-INF/common/footer.jspf"%>
