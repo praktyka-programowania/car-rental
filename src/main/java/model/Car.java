@@ -83,4 +83,17 @@ public class Car
     {
         this.price = price;
     }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Car car = (Car) o;
+
+        if (year != car.year) return false;
+        if (company != null ? !company.equals(car.company) : car.company != null) return false;
+        return model != null ? model.equals(car.model) : car.model == null;
+    }
 }
