@@ -12,8 +12,5 @@ public interface CarDao
     void rentCar(int id);
     void returnCar(int id);
     void deleteCar(int id);
-    List<Car> search(String str);
-    List<Car> search(int year);
-    List<Car> search(String company, String model);
     List<Car> search(Car car);
 }

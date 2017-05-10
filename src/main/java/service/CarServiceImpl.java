@@ -45,26 +45,8 @@ public class CarServiceImpl implements CarService
     }
 
     @Override
-    public List<Car> search(String str)
-    {
-        return dao.search(str);
-    }
-
-    @Override
-    public List<Car> search(int year)
-    {
-        return dao.search(year);
-    }
-
-    @Override
     public List<Car> search(Car car)
     {
         return dao.search(car);
-    }
-
-    @Override
-    public List<Car> search(String company, String model)
-    {
-        return dao.search(company, model);
     }
 }

@@ -19,6 +19,9 @@ public class CarDaoTemporaryImpl implements CarDao
         list = new ArrayList<>();
         list.add(new Car(count++, "Mercedes", "w140", 2005, 1555));
         list.add(new Car(count++, "BMW", "e36", 2005, 2000));
+        list.add(new Car(count++, "BMW", "e37", 2006, 2000));
+        list.add(new Car(count++, "BMW", "e38", 2003, 2000));
+        list.add(new Car(count++, "BMW", "e36", 2005, 2000));
         list.add(new Car(count++, "Mazda", "6", 2005, 1222));
         list.add(new Car(count++, "WAZ", "2101", 1995, 400));
     }
@@ -82,50 +85,12 @@ public class CarDaoTemporaryImpl implements CarDao
     }
 
     @Override
-    public List<Car> search(String str)
+    public List<Car> search(Car car)
     {
-        List<Car> result = new ArrayList<>();
-        for (Car car : list)
-        {
-            if (car.isEnabled() && (car.getCompany().equals(str) || car.getModel().equals(str)))
-                result.add(car);
-        }
-        return result;
-    }
-
-    @Override
-    public List<Car> search(String company, String model)
-    {
-        List<Car> result = new ArrayList<>();
-        for (Car car : list)
-        {
-            if (car.isEnabled() && (car.getCompany().equals(company) && car.getModel().equals(model)))
-                result.add(car);
-        }
-        return result;
-    }
-
-    @Override
-    public List<Car> search(int year)
-    {
-        List<Car> result = new ArrayList<>();
-        for (Car car : list)
-        {
-            if (car.isEnabled() && car.getYear() == year)
-                result.add(car);
-        }
-        return result;
-    }
-
-    @Override
-    public List<Car> search(Car c)
-    {
-        List<Car> result = new ArrayList<>();
-        for (Car car : list)
-        {
-            if (car.isEnabled() && car.equals(c))
-                result.add(car);
-        }
-        return result;
+        List<Car> res = new ArrayList<>();
+        for (Car c : list)
+            if (c.equals(car))
+                res.add(c);
+        return res;
     }
 }

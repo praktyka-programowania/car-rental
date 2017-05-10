@@ -1,6 +1,6 @@
 package model;
 
-import dao.CarDaoTemporaryImpl;
+import java.util.Date;
 
 public class Car
 {
@@ -9,7 +9,9 @@ public class Car
     private String model;
     private int year;
     private boolean enabled;
+    private Date returningDate;
     private double price;
+    private String url;
 
     public Car()
     {}
@@ -72,6 +74,26 @@ public class Car
     public void setEnabled(boolean enabled)
     {
         this.enabled = enabled;
+    }
+
+    public Date getReturningDate()
+    {
+        return returningDate;
+    }
+
+    public void setReturningDate(Date returningDate)
+    {
+        this.returningDate = returningDate;
+    }
+
+    public String getUrl()
+    {
+        return url;
+    }
+
+    public void setUrl(String url)
+    {
+        this.url = url;
     }
 
     public double getPrice()
