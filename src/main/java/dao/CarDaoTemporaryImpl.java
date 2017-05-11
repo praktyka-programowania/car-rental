@@ -89,8 +89,26 @@ public class CarDaoTemporaryImpl implements CarDao
     {
         List<Car> res = new ArrayList<>();
         for (Car c : list)
-            if (c.equals(car))
-                res.add(c);
+        {
+            if (car.getModel().isEmpty())
+            {
+                if (car.getCompany().equals(c.getCompany()))
+                    res.add(c);
+            }
+            else
+            {
+                if (car.getYear() == 0)
+                {
+                    if (car.getCompany().equals(c.getCompany()) && car.getModel().equals(c.getModel()))
+                        res.add(c);
+                }
+                else
+                {
+                    if (car.getCompany().equals(c.getCompany()) && car.getModel().equals(c.getModel()) && car.getYear() == c.getYear())
+                        res.add(c);
+                }
+            }
+        }
         return res;
     }
 }

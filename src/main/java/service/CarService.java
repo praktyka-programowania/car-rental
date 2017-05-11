@@ -12,4 +12,5 @@ public interface CarService
     void returnCar(int id);
     void deleteCar(int id);
     List<Car> search(Car car);
+    List<Car> getSearchList();
 }

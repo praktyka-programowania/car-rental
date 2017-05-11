@@ -1,10 +1,15 @@
 package model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 public class Car
 {
     private int id;
+    @NotEmpty(message = "Should be not empty")
     private String company;
     private String model;
     private int year;
@@ -114,7 +119,18 @@ public class Car
 
         Car car = (Car) o;
 
-        if (year != car.year) return false;
+        if (car.year != 0 && year != car.year) return false;
+        if (company != null ? !company.equals(car.company) : car.company != null) return false;
+        return model != null ? model.equals(car.model) : car.model == null;
+    }
+
+    public boolean equalsName(Object o)
+    {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Car car = (Car) o;
+
         if (company != null ? !company.equals(car.company) : car.company != null) return false;
         return model != null ? model.equals(car.model) : car.model == null;
     }
