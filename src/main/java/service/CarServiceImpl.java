@@ -49,11 +49,4 @@ public class CarServiceImpl implements CarService
     {
         return dao.search(car);
     }
-
-    @Override
-    public List<Car> getSearchList()
-    {
-        //TODO
-        return getAll();
-    }
 }

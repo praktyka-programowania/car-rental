@@ -6,13 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import service.CarService;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -42,7 +40,7 @@ public class WelcomeController
     public String search(Model model)
     {
         model.addAttribute(new Car(CarDaoTemporaryImpl.getCount(), "", "", 0, 0));
-        model.addAttribute("list", service.getSearchList());
+        model.addAttribute("list", service.getAll());
         return "search";
     }
 
@@ -51,14 +49,14 @@ public class WelcomeController
     {
         if (result.hasErrors())
         {
-            model.addAttribute("list", service.getSearchList());
+            model.addAttribute("list", service.getAll());
             return "search";
         }
         List<Car> list = service.search(car);
         if (list.size() > 0)
             model.addAttribute("list", list);
         else
-            model.addAttribute("error", "There is no available cars for today. Try later :(");
+            model.addAttribute("error", "There is no available cars that match to your require. Try once more.");
         return "display";
     }
 }

@@ -3,9 +3,7 @@ package dao;
 import model.Car;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 @Repository
 public class CarDaoTemporaryImpl implements CarDao
@@ -18,12 +16,15 @@ public class CarDaoTemporaryImpl implements CarDao
         count = 1;
         list = new ArrayList<>();
         list.add(new Car(count++, "Mercedes", "w140", 2005, 1555));
-        list.add(new Car(count++, "BMW", "e36", 2005, 2000));
         list.add(new Car(count++, "BMW", "e37", 2006, 2000));
+        list.add(new Car(count++, "Mazda", "RX8", 2005, 1222));
+        list.add(new Car(count++, "Mazda", "626", 2005, 1222));
         list.add(new Car(count++, "BMW", "e38", 2003, 2000));
         list.add(new Car(count++, "BMW", "e36", 2005, 2000));
+        list.add(new Car(count++, "BMW", "e36", 2005, 2000));
         list.add(new Car(count++, "Mazda", "6", 2005, 1222));
-        list.add(new Car(count++, "WAZ", "2101", 1995, 400));
+        list.add(new Car(count++, "Mazda", "3", 2005, 1222));
+        list.add(new Car(count++, "Waz", "2101", 2005, 1222));
     }
 
     public static int getCount()
@@ -38,6 +39,7 @@ public class CarDaoTemporaryImpl implements CarDao
         for (Car car : list)
             if (car.isEnabled())
                 result.add(car);
+        Collections.sort(result, (a, b) -> a.getCompany().compareTo(b.getCompany()));
         return result;
     }
 
@@ -90,21 +92,16 @@ public class CarDaoTemporaryImpl implements CarDao
         List<Car> res = new ArrayList<>();
         for (Car c : list)
         {
-            if (car.getModel().isEmpty())
+            if (car.getCompany().equals(c.getCompany()))
             {
-                if (car.getCompany().equals(c.getCompany()))
-                    res.add(c);
-            }
-            else
-            {
-                if (car.getYear() == 0)
+                if (car.getModel().isEmpty())
                 {
-                    if (car.getCompany().equals(c.getCompany()) && car.getModel().equals(c.getModel()))
+                    if (car.getYear() == 0 || car.getYear() == c.getYear())
                         res.add(c);
                 }
-                else
+                else if (car.getModel().equals(c.getModel()))
                 {
-                    if (car.getCompany().equals(c.getCompany()) && car.getModel().equals(c.getModel()) && car.getYear() == c.getYear())
+                    if (car.getYear() == 0 || car.getYear() == c.getYear())
                         res.add(c);
                 }
             }

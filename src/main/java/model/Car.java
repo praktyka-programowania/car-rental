@@ -26,7 +26,7 @@ public class Car
         this.id = id;
         this.company = company;
         this.model = model;
-        this.year = year;
+        this.year = year > 2000 || year == 0 ? year : 2000;
         this.enabled = true;
         this.price = price;
     }
