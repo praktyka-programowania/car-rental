@@ -27,7 +27,7 @@
 
         <fieldset class="form-group">
             <form:label path="year">Year:</form:label>
-            <form:select path="year" id="yearForm" disabled="true">
+            <form:select path="year" id="yearForm">
                 <option value="0">---</option>
                 <% for (int i = 1995; i < 2017; ++i) { %>
                 <form:option value="<%= i%>"><%= i%></form:option>
@@ -44,7 +44,7 @@
 <script src="/resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <script>
    function unable(target){ $(target).removeAttr("disabled"); }
-   
+
    $("#modelForm").chained("#companyForm");
 </script>
 <script>
