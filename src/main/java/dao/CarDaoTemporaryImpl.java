@@ -20,10 +20,12 @@ public class CarDaoTemporaryImpl implements CarDao
         list.add(new Car(count++, "Mazda", "RX8", 2005, 1222));
         list.add(new Car(count++, "Mazda", "626", 2005, 1222));
         list.add(new Car(count++, "BMW", "e38", 2003, 2000));
+        list.add(new Car(count++, "Waz", "2108", 2005, 1222));
         list.add(new Car(count++, "BMW", "e36", 2005, 2000));
         list.add(new Car(count++, "BMW", "e36", 2005, 2000));
         list.add(new Car(count++, "Mazda", "6", 2005, 1222));
         list.add(new Car(count++, "Mazda", "3", 2005, 1222));
+        list.add(new Car(count++, "Mercedes", "220", 2017, 1555));
         list.add(new Car(count++, "Waz", "2101", 2005, 1222));
     }
 

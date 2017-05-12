@@ -2,20 +2,39 @@ package model;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.persistence.*;
 import java.util.Date;
 
+
+@Entity
+@Table(name = "CARS")
 public class Car
 {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @Column(name = "COMPANY")
     @NotEmpty(message = "Should be not empty")
     private String company;
+
+    @Column(name = "MODEL")
     private String model;
+
+    @Column(name = "YEAR")
     private int year;
+
+    @Column(name = "ENABLED")
     private boolean enabled;
+
+    @Column(name = "RETURNING_DATE")
     private Date returningDate;
+
+    @Column(name = "PRICE")
     private double price;
+
+    @Column(name = "IMG")
     private String url;
 
     public Car()
@@ -24,6 +43,15 @@ public class Car
     public Car(int id, String company, String model, int year, double price)
     {
         this.id = id;
+        this.company = company;
+        this.model = model;
+        this.year = year > 2000 || year == 0 ? year : 2000;
+        this.enabled = true;
+        this.price = price;
+    }
+
+    public Car(String company, String model, int year, double price)
+    {
         this.company = company;
         this.model = model;
         this.year = year > 2000 || year == 0 ? year : 2000;
