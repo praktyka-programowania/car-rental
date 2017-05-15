@@ -1,3 +1,4 @@
+dao\CarDaoHibernateImpl.class
 service\CarServiceImpl.class
 controllers\WelcomeController.class
 dao\CarDao.class

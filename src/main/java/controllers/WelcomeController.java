@@ -1,6 +1,6 @@
 package controllers;
 
-import dao.CarDaoTemporaryImpl;
+//import dao.CarDaoTemporaryImpl;
 import model.Car;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,7 +40,7 @@ public class WelcomeController
     @RequestMapping(value = "/search", method = RequestMethod.GET)
     public String search(Model model)
     {
-        model.addAttribute(new Car(CarDaoTemporaryImpl.getCount(), "", "", 0, 0));
+        model.addAttribute(new Car(/*CarDaoTemporaryImpl.getCount()*/0, "", "", 0, 0));
         List<Car> list = service.getAll();
         Collections.sort(list, (a, b) -> a.getCompany().compareTo(b.getCompany()));
         model.addAttribute("list", list);

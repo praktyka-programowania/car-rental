@@ -1,4 +1,3 @@
-/*
 package dao;
 
 import model.Car;
@@ -20,7 +19,7 @@ public class CarDaoHibernateImpl implements CarDao
     @Override
     public List<Car> getAll()
     {
-        return null;//session.getCurrentSession().createQuery("from Cars").list();
+        return session.getCurrentSession().createQuery("from model.Car").list();
     }
 
     @Override
@@ -59,4 +58,3 @@ public class CarDaoHibernateImpl implements CarDao
         return null;
     }
 }
-*/

@@ -13,7 +13,7 @@ import java.util.List;
 public class CarServiceImpl implements CarService
 {
     @Autowired
-    @Qualifier("carDaoTemporaryImpl")
+    @Qualifier("carDao")
     CarDao dao;
 
     @Override
