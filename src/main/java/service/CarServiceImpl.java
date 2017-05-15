@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -29,9 +31,9 @@ public class CarServiceImpl implements CarService
     }
 
     @Override
-    public void rentCar(int id)
+    public void rentCar(int id, Date date)
     {
-        dao.rentCar(id);
+        dao.rentCar(id, date);
     }
 
     @Override
@@ -49,7 +51,25 @@ public class CarServiceImpl implements CarService
     @Override
     public List<Car> search(Car car)
     {
-        return dao.search(car);
+        List<Car> res = new ArrayList<>();
+        List<Car> list = dao.getAll();
+        for (Car c : list)
+        {
+            if (car.getCompany().equals(c.getCompany()))
+            {
+                if (car.getModel().isEmpty())
+                {
+                    if (car.getYear() == 0 || car.getYear() == c.getYear())
+                        res.add(c);
+                }
+                else if (car.getModel().equals(c.getModel()))
+                {
+                    if (car.getYear() == 0 || car.getYear() == c.getYear())
+                        res.add(c);
+                }
+            }
+        }
+        return res;
     }
 
     @Override

@@ -66,6 +66,9 @@ public class WelcomeController
         return "display";
     }
 
+
+
+    // TODO Delete this method
     @RequestMapping("/addAll")
     public String addAll()
     {

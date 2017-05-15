@@ -60,11 +60,14 @@ public class CarDaoTemporaryImpl implements CarDao
     }
 
     @Override
-    public void rentCar(int id)
+    public void rentCar(int id, Date date)
     {
         for (Car car : list)
             if (car.getId() == id)
+            {
                 car.setEnabled(false);
+                car.setReturningDate(date);
+            }
     }
 
     @Override
@@ -72,7 +75,10 @@ public class CarDaoTemporaryImpl implements CarDao
     {
         for (Car car : list)
             if (car.getId() == id)
+            {
                 car.setEnabled(true);
+                car.setReturningDate(null);
+            }
     }
 
     @Override
@@ -87,7 +93,7 @@ public class CarDaoTemporaryImpl implements CarDao
         }
     }
 
-    @Override
+
     public List<Car> search(Car car)
     {
         List<Car> res = new ArrayList<>();
