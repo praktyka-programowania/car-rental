@@ -51,4 +51,11 @@ public class CarServiceImpl implements CarService
     {
         return dao.search(car);
     }
+
+    @Override
+    public void addAll(List<Car> list)
+    {
+        for (Car car : list)
+            dao.addCar(car);
+    }
 }

@@ -31,7 +31,7 @@ public class CarDaoHibernateImpl implements CarDao
     @Override
     public void addCar(Car car)
     {
-
+        session.getCurrentSession().save(car);
     }
 
     @Override

@@ -15,18 +15,18 @@ public class CarDaoTemporaryImpl implements CarDao
     {
         count = 1;
         list = new ArrayList<>();
-        list.add(new Car(count++, "Mercedes", "w140", 2005, 1555));
-        list.add(new Car(count++, "BMW", "e37", 2006, 2000));
-        list.add(new Car(count++, "Mazda", "RX8", 2005, 1222));
-        list.add(new Car(count++, "Mazda", "626", 2005, 1222));
-        list.add(new Car(count++, "BMW", "e38", 2003, 2000));
-        list.add(new Car(count++, "Waz", "2108", 2005, 1222));
-        list.add(new Car(count++, "BMW", "e36", 2005, 2000));
-        list.add(new Car(count++, "BMW", "e36", 2005, 2000));
-        list.add(new Car(count++, "Mazda", "6", 2005, 1222));
-        list.add(new Car(count++, "Mazda", "3", 2005, 1222));
-        list.add(new Car(count++, "Mercedes", "220", 2017, 1555));
-        list.add(new Car(count++, "Waz", "2101", 2005, 1222));
+        list.add(new Car("Mercedes", "w140", 2005, 1555));
+        list.add(new Car("BMW", "e37", 2006, 2000));
+        list.add(new Car("Mazda", "RX8", 2005, 1222));
+        list.add(new Car("Mazda", "626", 2005, 1222));
+        list.add(new Car("BMW", "e38", 2003, 2000));
+        list.add(new Car("Waz", "2108", 2005, 1222));
+        list.add(new Car("BMW", "e36", 2005, 2000));
+        list.add(new Car("BMW", "e36", 2005, 2000));
+        list.add(new Car("Mazda", "6", 2005, 1222));
+        list.add(new Car("Mazda", "3", 2005, 1222));
+        list.add(new Car("Mercedes", "220", 2017, 1555));
+        list.add(new Car("Waz", "2101", 2005, 1222));
     }
 
     public static int getCount()
