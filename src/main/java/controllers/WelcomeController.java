@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import service.CarService;
 
 import javax.validation.Valid;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -40,7 +41,9 @@ public class WelcomeController
     public String search(Model model)
     {
         model.addAttribute(new Car(CarDaoTemporaryImpl.getCount(), "", "", 0, 0));
-        model.addAttribute("list", service.getAll());
+        List<Car> list = service.getAll();
+        Collections.sort(list, (a, b) -> a.getCompany().compareTo(b.getCompany()));
+        model.addAttribute("list", list);
         return "search";
     }
 
@@ -49,7 +52,9 @@ public class WelcomeController
     {
         if (result.hasErrors())
         {
-            model.addAttribute("list", service.getAll());
+            List<Car> list = service.getAll();
+            Collections.sort(list, (a, b) -> a.getCompany().compareTo(b.getCompany()));
+            model.addAttribute("list", list);
             return "search";
         }
         List<Car> list = service.search(car);

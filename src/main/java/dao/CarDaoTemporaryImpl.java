@@ -41,7 +41,6 @@ public class CarDaoTemporaryImpl implements CarDao
         for (Car car : list)
             if (car.isEnabled())
                 result.add(car);
-        Collections.sort(result, (a, b) -> a.getCompany().compareTo(b.getCompany()));
         return result;
     }
 

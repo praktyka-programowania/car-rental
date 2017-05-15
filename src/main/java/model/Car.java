@@ -13,25 +13,26 @@ public class Car
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
     private int id;
 
-    @Column(name = "COMPANY")
+    @Column
     @NotEmpty(message = "Should be not empty")
     private String company;
 
-    @Column(name = "MODEL")
+    @Column
     private String model;
 
-    @Column(name = "YEAR")
+    @Column
     private int year;
 
-    @Column(name = "ENABLED")
+    @Column
     private boolean enabled;
 
     @Column(name = "RETURNING_DATE")
     private Date returningDate;
 
-    @Column(name = "PRICE")
+    @Column
     private double price;
 
     @Column(name = "IMG")

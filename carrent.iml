@@ -61,5 +61,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:4.2.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:4.2.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:4.2.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.42" level="project" />
   </component>
 </module>
