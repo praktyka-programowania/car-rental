@@ -1,6 +1,6 @@
 
 <footer class="text-center navbar-fixed-bottom">
-    <p>Praktyka programowania &#169;</p>
+    <p>Praktyka programowania, <%= new java.util.GregorianCalendar().getWeekYear() %> &#169;</p>
 </footer>
 </div>
 <script src="/resources/jquery-3.2.1.min.js"/>

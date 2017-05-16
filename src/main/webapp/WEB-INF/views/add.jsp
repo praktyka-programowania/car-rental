@@ -28,8 +28,8 @@
     <fieldset>
         <form:label path="url">Image</form:label>
         <form:errors path="url" cssClass="text-warning"/>
-        <form:input path="url" type="text" required="required" readonly="true"/>
-        <form:button value="Attach" name="attach"/>
+        <form:input path="url" type="text" readonly="true"/>
+        <input type="file" value="Attach"/>
     </fieldset>
 
     <input type="submit" value="Add" class="btn btn-success">
