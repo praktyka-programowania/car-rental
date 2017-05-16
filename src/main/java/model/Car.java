@@ -157,15 +157,4 @@ public class Car
         if (company != null ? !company.equals(car.company) : car.company != null) return false;
         return model != null ? model.equals(car.model) : car.model == null;
     }
-
-    public boolean equalsName(Object o)
-    {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Car car = (Car) o;
-
-        if (company != null ? !company.equals(car.company) : car.company != null) return false;
-        return model != null ? model.equals(car.model) : car.model == null;
-    }
 }
