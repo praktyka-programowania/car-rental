@@ -41,10 +41,8 @@ public class WelcomeController
     @RequestMapping(value = "/search", method = RequestMethod.GET)
     public String search(Model model)
     {
-        model.addAttribute(new Car(/*CarDaoTemporaryImpl.getCount()*/0, "", "", 0, 0));
-        List<Car> list = service.getAll();
-        Collections.sort(list, (a, b) -> a.getCompany().compareTo(b.getCompany()));
-        model.addAttribute("list", list);
+        model.addAttribute(new Car("", "", 0, 0));
+        model.addAttribute("list", service.getSortedList());
         return "search";
     }
 
@@ -53,9 +51,7 @@ public class WelcomeController
     {
         if (result.hasErrors())
         {
-            List<Car> list = service.getAll();
-            Collections.sort(list, (a, b) -> a.getCompany().compareTo(b.getCompany()));
-            model.addAttribute("list", list);
+            model.addAttribute("list", service.getSortedList());
             return "search";
         }
         List<Car> list = service.search(car);
@@ -66,26 +62,4 @@ public class WelcomeController
         return "display";
     }
 
-
-
-    // TODO Delete this method
-    @RequestMapping("/addAll")
-    public String addAll()
-    {
-        List<Car> list = new ArrayList<>();
-        list.add(new Car("Mercedes", "w140", 2005, 1555));
-        list.add(new Car("BMW", "e37", 2006, 2000));
-        list.add(new Car("Mazda", "RX8", 2005, 1222));
-        list.add(new Car("Mazda", "626", 2005, 1222));
-        list.add(new Car("BMW", "e38", 2003, 2000));
-        list.add(new Car("Waz", "2108", 2005, 1222));
-        list.add(new Car("BMW", "e36", 2005, 2000));
-        list.add(new Car("BMW", "e36", 2005, 2000));
-        list.add(new Car("Mazda", "6", 2005, 1222));
-        list.add(new Car("Mazda", "3", 2005, 1222));
-        list.add(new Car("Mercedes", "220", 2017, 1555));
-        list.add(new Car("Waz", "2101", 2005, 1222));
-        service.addAll(list);
-        return "redirect:/display";
-    }
 }

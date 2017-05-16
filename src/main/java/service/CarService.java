@@ -8,6 +8,7 @@ import java.util.List;
 public interface CarService
 {
     List<Car> getAll();
+    List<Car> getSortedList();
     Car getCar(int id);
     void rentCar(int id, Date date);
     void returnCar(int id);

@@ -1,8 +1,10 @@
 package model;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.util.Date;
 
 
@@ -21,21 +23,24 @@ public class Car
     private String company;
 
     @Column
+    @NotEmpty(message = "Should be not empty")
     private String model;
 
     @Column
+    @Min(1995)
     private int year;
 
     @Column
     private boolean enabled;
 
-    @Column(name = "RETURNING_DATE")
+    @Column(name = "returning_date")
     private Date returningDate;
 
     @Column
+    @Min(0)
     private double price;
 
-    @Column(name = "IMG")
+    @Column(name = "img")
     private String url;
 
     public Car()

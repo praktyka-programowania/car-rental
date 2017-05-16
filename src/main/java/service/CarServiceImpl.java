@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -21,7 +22,20 @@ public class CarServiceImpl implements CarService
     @Override
     public List<Car> getAll()
     {
-        return dao.getAll();
+        List<Car> list = dao.getAll();
+        List<Car> result = new ArrayList<>();
+        for (Car car : list)
+            if (car.isEnabled())
+                result.add(car);
+        return result;
+    }
+
+    @Override
+    public List<Car> getSortedList()
+    {
+        List<Car> list = getAll();
+        Collections.sort(list, (a, b) -> a.getCompany().compareTo(b.getCompany()));
+        return list;
     }
 
     @Override
