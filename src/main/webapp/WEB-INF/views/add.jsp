@@ -32,7 +32,7 @@
         <form:button value="Attach" name="attach"/>
     </fieldset>
 
-    <input type="submit" value="Add">
+    <input type="submit" value="Add" class="btn btn-success">
 </form:form>
 
 <%@ include file="/WEB-INF/common/footer.jspf"%>

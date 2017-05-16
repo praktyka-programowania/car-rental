@@ -2,9 +2,10 @@ controllers\NavController.class
 dao\CarDaoHibernateImpl.class
 service\CarServiceImpl.class
 controllers\AdvancedController.class
-controllers\WelcomeController.class
 dao\CarDao.class
 dao\CarDaoTemporaryImpl.class
 model\Car.class
-service\CarService.class
 model\Person.class
+controllers\WelcomeController.class
+model\CarForm.class
+service\CarService.class

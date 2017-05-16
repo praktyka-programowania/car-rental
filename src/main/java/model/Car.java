@@ -1,5 +1,6 @@
 package model;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -19,11 +20,11 @@ public class Car
     private int id;
 
     @Column
-    @NotEmpty(message = "Should be not empty")
+    @Length(min = 3, message = "Should contain at least 3 characters")
     private String company;
 
     @Column
-    @NotEmpty(message = "Should be not empty")
+    @Length(min = 3, message = "Should contain at least 3 characters")
     private String model;
 
     @Column

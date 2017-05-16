@@ -2,6 +2,7 @@ package controllers;
 
 //import dao.CarDaoTemporaryImpl;
 import model.Car;
+import model.CarForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,20 +42,21 @@ public class WelcomeController
     @RequestMapping(value = "/search", method = RequestMethod.GET)
     public String search(Model model)
     {
-        model.addAttribute(new Car("", "", 0, 0));
+        model.addAttribute("car", new CarForm("", "", 0));
         model.addAttribute("list", service.getSortedList());
         return "search";
     }
 
     @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public String search(@Valid Car car, BindingResult result, Model model)
+    public String search(@Valid CarForm car, BindingResult result, Model model)
     {
         if (result.hasErrors())
         {
             model.addAttribute("list", service.getSortedList());
             return "search";
         }
-        List<Car> list = service.search(car);
+        Car c = new Car(car.getCompany(), car.getModel(), car.getYear(), 0);
+        List<Car> list = service.search(c);
         if (list.size() > 0)
             model.addAttribute("list", list);
         else

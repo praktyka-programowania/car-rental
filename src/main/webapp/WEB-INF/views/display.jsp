@@ -42,7 +42,7 @@
         </table>
     </c:when>
     <c:otherwise>
-        <a href="/search">Back</a>
+        <a href="<%=request.getHeader("Referer")%>">Back</a>
     </c:otherwise>
 </c:choose>
 <%@include file="/WEB-INF/common/footer.jspf"%>
