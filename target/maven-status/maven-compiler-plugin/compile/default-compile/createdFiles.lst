@@ -1,3 +1,4 @@
+controllers\NavController.class
 dao\CarDaoHibernateImpl.class
 service\CarServiceImpl.class
 controllers\AdvancedController.class
