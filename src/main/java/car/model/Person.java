@@ -1,4 +1,4 @@
-package model;
+package car.model;
 
 public class Person
 {

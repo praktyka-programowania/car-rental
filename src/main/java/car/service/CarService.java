@@ -1,14 +1,13 @@
-package dao;
+package car.service;
 
-import model.Car;
+import car.model.Car;
 
 import java.util.List;
 
-public interface CarDao
+public interface CarService
 {
     List<Car> getAll();
     Car getCar(int id);
-    void addCar(Car car);
     void rentCar(int id);
     void returnCar(int id);
     void deleteCar(int id);

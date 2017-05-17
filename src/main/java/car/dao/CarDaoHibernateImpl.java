@@ -1,25 +1,27 @@
-package dao;
+package car.dao;
 
-import model.Car;
+import car.model.Car;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 
 @Repository("carDao")
-@Transactional
 public class CarDaoHibernateImpl implements CarDao
 {
     @Autowired
-    private SessionFactory session;
+    private SessionFactory sessionFactory;
+
+    public CarDaoHibernateImpl(SessionFactory session) {
+        this.sessionFactory = session;
+    }
 
     @Override
     public List<Car> getAll()
     {
-        return session.getCurrentSession().createQuery("from model.Car").list();
+        return sessionFactory.getCurrentSession().createQuery("from Car").list();
     }
 
     @Override

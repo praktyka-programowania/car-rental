@@ -1,6 +1,4 @@
-package model;
-
-import org.hibernate.validator.constraints.NotEmpty;
+package car.model;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -17,7 +15,6 @@ public class Car
     private int id;
 
     @Column
-    @NotEmpty(message = "Should be not empty")
     private String company;
 
     @Column
