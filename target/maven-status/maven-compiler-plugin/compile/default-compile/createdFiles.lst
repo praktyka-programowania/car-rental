@@ -1,8 +1,0 @@
-dao\CarDaoHibernateImpl.class
-service\CarServiceImpl.class
-controllers\WelcomeController.class
-dao\CarDao.class
-dao\CarDaoTemporaryImpl.class
-model\Car.class
-service\CarService.class
-model\Person.class
